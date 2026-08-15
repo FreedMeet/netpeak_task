@@ -8,6 +8,7 @@ dist/
 wheels/
 *.egg-info
 .env
+google-service-account.json
 
 # Virtual environments
 .venv

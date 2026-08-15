@@ -6,6 +6,8 @@ import pandas as pd
 from dotenv import load_dotenv
 from google import genai
 from pydantic import ValidationError
+from netpeak import telegram_digest
+from netpeak import sheets_writer
 
 from netpeak.llm_client import (
     MODEL_NAME,
@@ -145,7 +147,12 @@ def main() -> None:
     results = process_all(client)
     write_output_json(results)
     write_report(results)
+    sheets_writer.write_results(results)
     print(f"Processed {len(results)} requests -> {OUTPUT_JSON_PATH}, {REPORT_PATH}")
+
+    ok_count = sum(1 for r in results if r.ok)
+    summary = f"Netpeak request classification: {ok_count}/{len(results)} processed successfully"
+    telegram_digest.send_report(REPORT_PATH, summary)
 
 
 if __name__ == "__main__":

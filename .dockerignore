@@ -1,0 +1,9 @@
+.venv
+.git
+.idea
+output
+__pycache__
+*.pyc
+.env
+google-service-account.json
+examples
