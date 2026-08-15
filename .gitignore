@@ -1,11 +1,13 @@
 # Python-generated files
 __pycache__/
 .idea/
+output
 *.py[oc]
 build/
 dist/
 wheels/
 *.egg-info
+.env
 
 # Virtual environments
 .venv
