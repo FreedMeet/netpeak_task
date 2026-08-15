@@ -1,0 +1,22 @@
+[project]
+name = "netpeak"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "FreedMeet", email = "freedmeetme@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "google-genai>=2.18.1",
+    "pandas>=3.0.5",
+    "pydantic>=2.13.4",
+    "python-dotenv>=1.2.2",
+    "tenacity>=9.1.4",
+]
+
+[project.scripts]
+netpeak = "netpeak:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
